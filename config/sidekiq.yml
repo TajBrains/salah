@@ -1,0 +1,7 @@
+---
+:concurrency: 25
+:pidfile: ./tmp/pids/sidekiq.pid
+## We want default STDOUT logging
+# :logfile: ./log/sidekiq.log
+:queues:
+  - default

@@ -1,0 +1,4 @@
+import_worker:
+  cron: "* * * * *"
+  class: "ImportWorker"
+  queue: default

@@ -1,0 +1,32 @@
+de:
+  times:
+    fajr: "Imsak/Fajr"
+    sunset: "Güneş/Shooroq"
+    dhuhr: "Öğle/Dhuhr"
+    asr: "İkindi/Asr"
+    maghrib: "Akşam/Maghrib"
+    isha: "Yatsı/Isha"
+  remained_label: "%{time} Ezanına Kalan Süre"
+
+  date:
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    abbr_month_names: ['', Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    month_names: ['', Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    formats:
+      default: "%d.%m.%Y, %H:%M Uhr"
+      long: "%e. %B %Y"
+      short: "%e. %b"
+      time_only: '%H:%M Uhr'
+      date_only: '%d.%m.%Y'
+      pray_time: '%H:%M'
+  time:
+    am: AM
+    pm: PM
+    formats:
+      default: "%d.%m.%Y, %H:%M Uhr"
+      long: "%A, %e. %B %Y, %H:%M Uhr"
+      short: "%e. %b, %H:%M Uhr"
+      time_only: '%H:%M Uhr'
+      date_only: '%d.%m.%Y'
+      pray_time: '%H:%M'

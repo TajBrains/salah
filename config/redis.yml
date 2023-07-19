@@ -1,0 +1,13 @@
+default: &default
+  url: redis://localhost:6379
+  db: 0
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+  url: redis://<%= ENV["REDIS_PASSWORD"].blank? ? "#{ENV['REDIS_URL'] || 'not_set'}" : ":#{ENV['REDIS_PASSWORD'] || 'not_set'}@#{ENV['REDIS_URL'] || 'not_set'}" %>

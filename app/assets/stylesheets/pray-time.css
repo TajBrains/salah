@@ -1,0 +1,17 @@
+@font-face {
+    font-family: clock-font;
+    src: url("clock-font.ttf") format('truetype');
+}
+
+.pray-time-wrapper {
+    @apply w-full text-white flex items-center justify-between border-b-2 border-amber-400;
+}
+
+.pray-time {
+    @apply text-3xl font-black text-center tracking-widest md:text-7xl;
+    font-family: clock-font, sans-serif;
+}
+
+.pray-label {
+    @apply text-2xl font-bold text-center tracking-wider md:text-5xl;
+}
