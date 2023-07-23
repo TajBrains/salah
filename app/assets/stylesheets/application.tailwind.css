@@ -5,13 +5,9 @@
 @tailwind utilities;
 
 body {
-    @apply md:overflow-hidden;
-
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    min-width: 100%;
-    min-height: 100vh;
 }
 
 .cursor-hidden {

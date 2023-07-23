@@ -1,0 +1,7 @@
+.flex.flex-col.items-center.justify-around.space-y-6{ data: { controller: "current-time" } }
+  .text-9xl.font-medium.text-white{ data: { current_time_target: "time" } }
+    = Time.current.strftime("%H:%M:%S")
+  .text-7xl.text-white.font-medium.tracking-wider
+    = l(Date.current, format: :long, locale: :tr)
+  .text-amber-400.text-5xl.font-bold
+    = Date.current.to_hijri.strftime('%d %B, %Y')

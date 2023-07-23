@@ -1,0 +1,4 @@
+.flex.flex-col.items-center.justify-around.space-y-6{data: { controller: "remained-time", remained_time: { next_time_value: PrayTimeService.next_time(pray_time).strftime("%Y-%m-%d %H:%M") } }}
+  .text-white.text-6xl.font-medium
+    = t(:remained_label, time: t("times.#{PrayTimeService.next_time_name(pray_time)}", locale: :tr))
+  .text-8xl.font-medium.text-amber-400{ data: { remained_time_target: "time" } } 00:00:00

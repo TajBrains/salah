@@ -119,5 +119,3 @@ gem 'rails_accordion'
 
 gem 'httparty'
 gem 'hijri'
-
-gem 'stimulus_reflex', '= 3.5.0.pre8'

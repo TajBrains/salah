@@ -4,3 +4,6 @@ import "controllers"
 
 // jquery
 import "jquery"
+
+// Lodash
+import "lodash"

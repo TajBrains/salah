@@ -9,6 +9,6 @@
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body{data: { controller: "cursor watcher", cursor_target: "activityArea", watcher_times_value: PrayTimeService.times(@pray_time) }, style: send("bg_image_#{@version}")}
+  %body{class: "min-w-full min-h-screen md:overflow-hidden", data: { controller: "cursor watcher", watcher_callback_url_value: root_url, cursor_target: "activityArea", watcher_times_value: PrayTimeService.times(@pray_time) }, style: send("bg_image_#{@version}")}
     .mx-auto.px-6
       = yield

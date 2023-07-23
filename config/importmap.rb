@@ -6,9 +6,6 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 # Rails ActionCable
 pin '@rails/actioncable', to: 'https://ga.jspm.io/npm:@rails/actioncable@7.0.0/app/assets/javascripts/actioncable.esm.js'
 
-# Stimulus Reflex
-pin 'stimulus_reflex', to: 'https://ga.jspm.io/npm:stimulus_reflex@3.5.0-pre8/javascript/stimulus_reflex.js'
-
 # CableReady
 pin 'cable_ready', to: 'https://ga.jspm.io/npm:cable_ready@5.0.0-pre8/javascript/index.js'
 
@@ -29,3 +26,5 @@ pin "stimulus-use", to: "https://ga.jspm.io/npm:stimulus-use@0.51.3/dist/index.j
 
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/components", under: "components"
+
+pin "lodash", to: "https://ga.jspm.io/npm:lodash@4.17.21/lodash.js"

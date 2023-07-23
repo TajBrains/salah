@@ -1,14 +1,13 @@
-import ApplicationController from 'controllers/application_controller'
+import ApplicationController from 'controllers/application_controller';
 
 export default class extends ApplicationController {
     static targets = ["time"];
     static values = {
         times: { type: Array, default: [] },
         callbackUrl: String
-    }
+    };
 
     connect() {
-        super.connect()
         this.checkPrayerTimes();
         this.startInterval();
     }
@@ -18,7 +17,7 @@ export default class extends ApplicationController {
     }
 
     startInterval() {
-        this.interval = setInterval(this.checkPrayerTimes.bind(this), 1000); // Check every minute
+        this.interval = setInterval(this.checkPrayerTimes.bind(this), 1000);
     }
 
     stopInterval() {
@@ -29,14 +28,16 @@ export default class extends ApplicationController {
         const currentTime = new Date();
 
         if (this.isMidnight(currentTime)) {
-            this.stimulate()
+            this.dispatchReload();
+            return; // Exit early to prevent further checks in the same second
         }
 
         const prayTimes = this.timesValue.map((prayTime) => new Date(prayTime)).filter((dateObject) => !isNaN(dateObject.getTime()));
 
         prayTimes.forEach((prayTime) => {
             if (this.isSameTime(currentTime, prayTime)) {
-                this.stimulate()
+                this.dispatchReload();
+                return; // Exit early to prevent further checks in the same second
             }
         });
     }
@@ -51,5 +52,10 @@ export default class extends ApplicationController {
             time1.getMinutes() === time2.getMinutes() &&
             time1.getSeconds() === time2.getSeconds()
         );
+    }
+
+    dispatchReload() {
+        Turbo.cache.clear();
+        Turbo.visit(this.callbackUrlValue, { action: 'replace' });
     }
 }
