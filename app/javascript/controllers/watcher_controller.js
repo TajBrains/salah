@@ -29,15 +29,15 @@ export default class extends ApplicationController {
 
         if (this.isMidnight(currentTime)) {
             this.dispatchReload();
-            return; // Exit early to prevent further checks in the same second
         }
 
         const prayTimes = this.timesValue.map((prayTime) => new Date(prayTime)).filter((dateObject) => !isNaN(dateObject.getTime()));
 
         prayTimes.forEach((prayTime) => {
             if (this.isSameTime(currentTime, prayTime)) {
+                console.log(prayTime)
+                console.log("Praytime passed")
                 this.dispatchReload();
-                return; // Exit early to prevent further checks in the same second
             }
         });
     }
