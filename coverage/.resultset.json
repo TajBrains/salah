@@ -1,0 +1,87 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/ahmadshohnasrullozoda/projects/salah/app/services/pray_time_service.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+          "[:unless, 0, 6, 4, 6, 29]": {
+            "[:else, 1, 6, 4, 6, 29]": 0,
+            "[:then, 2, 6, 4, 6, 16]": 0
+          },
+          "[:if, 3, 10, 4, 12, 7]": {
+            "[:then, 4, 11, 6, 11, 36]": 0,
+            "[:else, 5, 10, 4, 12, 7]": 0
+          },
+          "[:if, 6, 17, 21, 17, 110]": {
+            "[:then, 7, 17, 37, 17, 59]": 0,
+            "[:else, 8, 17, 62, 17, 110]": 0
+          },
+          "[:if, 9, 26, 4, 26, 105]": {
+            "[:then, 10, 26, 32, 26, 54]": 0,
+            "[:else, 11, 26, 57, 26, 105]": 0
+          },
+          "[:if, 12, 32, 4, 32, 72]": {
+            "[:then, 13, 32, 32, 32, 37]": 0,
+            "[:else, 14, 32, 40, 32, 72]": 0
+          }
+        }
+      }
+    },
+    "timestamp": 1690966254
+  }
+}
