@@ -5,9 +5,17 @@ class PrayTimeService
     index = PRAY_TIMES_ORDER.index(time)
     return false unless index
 
+    now = DateTime.now
+
+    if Time.current.between?(DateTime.new(now.year, now.month, now.day, 0, 0), pray_time.fajr)
+      pray_time = PrayTime.yesterday
+    end
+
+    puts pray_time.inspect
+    puts PrayTime.all.inspect
     current_pray_time = pray_time.send(time.to_s)
     next_pray_time = time == :isha ? PrayTime.tomorrow.fajr : pray_time.send(PRAY_TIMES_ORDER[index + 1].to_s)
-
+    # puts
     Time.current.between?(current_pray_time, next_pray_time)
   end
 
