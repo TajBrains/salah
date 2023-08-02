@@ -7,6 +7,10 @@ class PrayTime < ApplicationRecord
 		find_by(date: Date.current + 1.day)
 	end
 
+	def tomorrow
+		PrayTime.find_by(date: self.date + 1.day)
+	end
+
 	def self.yesterday
 		find_by(date: Date.current - 1.day)
 	end

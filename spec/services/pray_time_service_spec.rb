@@ -6,6 +6,8 @@ RSpec.describe PrayTimeService do
   let!(:tomorrow_pray_time) { create :pray_time, :tomorrow}
   let(:now) { Date.current }
 
+  subject { described_class.new(pray_time) }
+
 	before do
 		Timecop.freeze(DateTime.new(now.year, now.month, now.day, 10, 0))
 	end
@@ -13,11 +15,11 @@ RSpec.describe PrayTimeService do
 	describe ".is_active?" do
 		context 'with current time after fajr' do
 			it "returns true when the time is active" do
-				expect(PrayTimeService.is_active?(pray_time, :fajr)).to be true
+				expect(subject.is_active?(:fajr)).to be true
 			end
 
 			it "returns false when the time is not active" do
-				expect(PrayTimeService.is_active?(pray_time, :asr)).to be false
+				expect(subject.is_active?(:asr)).to be false
 			end
 		end
 
@@ -27,12 +29,12 @@ RSpec.describe PrayTimeService do
 			end
 
 			it "returns true when the time is active" do
-				expect(PrayTimeService.is_active?(pray_time, :isha)).to be true
+				expect(subject.is_active?(:isha)).to be true
 			end
 
 			it "returns false when the time is not active" do
 				# Assuming asr time is not active right now
-				expect(PrayTimeService.is_active?(pray_time, :fajr)).to be false
+				expect(subject.is_active?(:fajr)).to be false
 			end
     end
 
@@ -42,30 +44,24 @@ RSpec.describe PrayTimeService do
 			end
 
 			it "returns true when the time is active" do
-				expect(PrayTimeService.is_active?(pray_time, :isha)).to be true
+				expect(subject.is_active?(:isha)).to be true
 			end
 
 			it "returns false when the time is not active" do
-				expect(PrayTimeService.is_active?(pray_time, :fajr)).to be false
+				expect(subject.is_active?(:fajr)).to be false
 			end
 		end
 	end
 
 	describe ".next_time" do
 		it "returns the next prayer time" do
-			expect(PrayTimeService.next_time(pray_time)).to eq pray_time.dhuhr
+			expect(subject.next_time).to eq pray_time.dhuhr
 		end
 	end
 
 	describe ".next_time_name" do
 		it "returns the name of the next prayer time" do
-			expect(PrayTimeService.next_time_name(pray_time).to_sym).to eq :dhuhr
-		end
-	end
-
-	describe ".active_time" do
-		it "returns the currently active prayer time" do
-			expect(PrayTimeService.active_time(pray_time)).to eq pray_time.fajr
+			expect(subject.next_time_name.to_sym).to eq :dhuhr
 		end
 	end
 end

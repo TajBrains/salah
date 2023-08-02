@@ -4,6 +4,7 @@ class MainController < ApplicationController
   def index
     @version = params[:version] || :v1
     @pray_time = PrayTime.today
+    @pray_time_service = PrayTimeService.new(@pray_time)
   end
 
   def import
