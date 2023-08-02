@@ -84,6 +84,8 @@ group :test do
   gem 'shoulda-matchers', '~> 5.0'
   gem 'timecop'
   gem 'database_cleaner-active_record'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem 'hotwire-rails', '~> 0.1.3'

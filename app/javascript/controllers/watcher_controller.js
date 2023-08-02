@@ -35,8 +35,6 @@ export default class extends ApplicationController {
 
         prayTimes.forEach((prayTime) => {
             if (this.isSameTime(currentTime, prayTime)) {
-                console.log(prayTime)
-                console.log("Praytime passed")
                 this.dispatchReload();
             }
         });

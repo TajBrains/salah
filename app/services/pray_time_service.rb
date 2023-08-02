@@ -11,11 +11,9 @@ class PrayTimeService
       pray_time = PrayTime.yesterday
     end
 
-    puts pray_time.inspect
-    puts PrayTime.all.inspect
     current_pray_time = pray_time.send(time.to_s)
+
     next_pray_time = time == :isha ? PrayTime.tomorrow.fajr : pray_time.send(PRAY_TIMES_ORDER[index + 1].to_s)
-    # puts
     Time.current.between?(current_pray_time, next_pray_time)
   end
 
