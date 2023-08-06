@@ -4,12 +4,14 @@ export default class extends ApplicationController {
     static targets = ["time"];
     static values = {
         times: { type: Array, default: [] },
-        callbackUrl: String
+        callbackUrl: String,
+        turboInactivityTimer: { type: Number, default: 30 * 60 * 1000 }
     };
 
     connect() {
         this.checkPrayerTimes();
         this.startInterval();
+        this.startTurboInactivityTimer()
     }
 
     disconnect() {
@@ -28,14 +30,14 @@ export default class extends ApplicationController {
         const currentTime = new Date();
 
         if (this.isMidnight(currentTime)) {
-            this.dispatchReload();
+            super.dispatchReload();
         }
 
         const prayTimes = this.timesValue.map((prayTime) => new Date(prayTime)).filter((dateObject) => !isNaN(dateObject.getTime()));
 
         prayTimes.forEach((prayTime) => {
             if (this.isSameTime(currentTime, prayTime)) {
-                this.dispatchReload();
+                super.dispatchReload();
             }
         });
     }
@@ -52,8 +54,9 @@ export default class extends ApplicationController {
         );
     }
 
-    dispatchReload() {
-        Turbo.cache.clear();
-        Turbo.visit(this.callbackUrlValue, { action: 'replace' });
-    }
+    startTurboInactivityTimer = () => {
+        this.inactivityTimer = setTimeout(() => {
+            super.dispatchReload()
+        }, this.turboInactivityTimerValue);
+    };
 }

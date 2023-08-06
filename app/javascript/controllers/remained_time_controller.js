@@ -9,6 +9,10 @@ export default class extends ApplicationController {
 
         // Set up a timer to call updateTime() every second (1000ms)
         this.remainedTimeTimer = setInterval(() => {
+            if (this.timeTarget.textContent.includes('-')) {
+                super.dispatchReload()
+            }
+
             this.updateTime();
         }, 1000);
     }
