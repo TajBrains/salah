@@ -11,17 +11,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    echo "Commit Hash: ${GIT_COMMIT}"
-                    echo "Commit Author: ${GIT_AUTHOR_NAME}"
-                    echo "Commit Message: ${GIT_COMMIT_MESSAGE}"
-                    echo "Repository URL: ${GIT_URL}"
-                }
-            }
-        }
-
         stage('Connect to Server') {
             steps {
                 script {
