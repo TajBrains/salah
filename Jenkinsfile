@@ -11,6 +11,22 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    def commitHash = env.GIT_COMMIT
+                    def commitAuthor = env.GIT_AUTHOR_NAME
+                    def commitMessage = env.GIT_COMMIT_MESSAGE
+                    def repositoryUrl = env.GIT_URL
+
+                    echo "Commit Hash: ${commitHash}"
+                    echo "Commit Author: ${commitAuthor}"
+                    echo "Commit Message: ${commitMessage}"
+                    echo "Repository URL: ${repositoryUrl}"
+                }
+            }
+        }
+
         stage('Connect to Server') {
             steps {
                 script {
