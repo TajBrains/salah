@@ -1,7 +1,6 @@
 import ApplicationController from 'controllers/application_controller'
 
 export default class extends ApplicationController {
-    static targets = ["activityArea"];
     static values = {
         inactivityTimeout: { type: Number, default: 10000 },
         hideCursorClass: { type: String, default: "cursor-hidden" }
@@ -9,8 +8,7 @@ export default class extends ApplicationController {
 
     connect() {
         this.startInactivityTimer();
-        this.activityAreaTarget.addEventListener("mousemove", this.restartInactivityTimer);
-        this.activityAreaTarget.addEventListener("keypress", this.restartInactivityTimer);
+        $("body").on("mousemove keypress", this.restartInactivityTimer);
     }
 
     disconnect() {
@@ -19,21 +17,23 @@ export default class extends ApplicationController {
 
     startInactivityTimer = () => {
         this.inactivityTimer = setTimeout(() => {
-            this.hideCursor();
+            this.hideElements();
         }, this.inactivityTimeoutValue);
     };
 
     restartInactivityTimer = () => {
         clearTimeout(this.inactivityTimer);
-        this.showCursor();
+        this.showElements();
         this.startInactivityTimer();
     };
 
-    hideCursor() {
+    hideElements() {
         $("body").addClass(this.hideCursorClassValue);
+        $("footer").fadeOut(500);
     }
 
-    showCursor() {
+    showElements() {
         $("body").removeClass(this.hideCursorClassValue);
+        $("footer").fadeIn(500);
     }
 }

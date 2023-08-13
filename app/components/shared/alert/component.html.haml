@@ -1,0 +1,11 @@
+#alerts.flex.flex-col.p-3.mb-4.text-xm.rounded-2xl{class: "bg-#{bg_color}-200", data: {controller: 'alert'}}
+  .flex.items-center
+    = svg_tag "alert", class: "w-8 h-8 !min-w-8 mr-2 fill-#{bg_color}-500"
+
+    #message_content.w-full= @message
+
+    - if @dissmissable
+      = svg_tag "dissmiss", class: "h-8 w-8 !min-w-8 ml-auto mr-2 transition hover:bg-black hover:bg-opacity-10 rounded-lg p-1 cursor-pointer", "data-action": "click->shared--alert--component#close_alert"
+  - if actions?
+    .flex.items-center.pl-10.mt-2.gap-2
+      = actions

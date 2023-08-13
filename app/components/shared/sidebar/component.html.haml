@@ -1,0 +1,12 @@
+.w-full{"aria-label" => "Sidebar"}
+	.overflow-y-auto.scaffold.p-4
+		%ul.space-y-2
+			- @items.each do |item|
+				- if item[:show]
+					%li
+						= link_to item[:path], data: {turbo: false}, class: "flex items-center px-3 py-2 text-base font-normal text-gray-900 rounded-2xl hover:bg-gray-200 #{current_page?(item[:path]) ? "bg-gray-200" : "bg-white"}" do
+							- if item[:icon].present?
+								.w-8.h-8.flex.items-center.justify-center.flex-noone
+									= svg_tag item[:icon], class: "w-full h-full fill-slate-500"
+							%span.ml-2.flex-auto
+								= item[:title]

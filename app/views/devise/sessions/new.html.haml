@@ -1,0 +1,19 @@
+.flex.items-center.justify-center.min-h-full
+  .scaffold.w-max.text-left
+    %h3.text-2xl.font-bold.text-center Anmelden
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } }) do |f|
+      .mt-4
+        %div
+          = f.label :email, class: "block", for: "email"
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", id: "email", placeholder: "Email"
+        .mt-4
+          = f.label :password, class: "block", for: "password"
+          = f.password_field :password, autocomplete: "current-password", class: "w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", id: "password", placeholder: "Password"
+        .mt-4
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+        .flex.flex-col.items-center.justify-between.mt-4.space-y-4
+          = f.submit "Anmelden", class: "dark-button min-w-full"
+          = link_to "Passwort vergessen?", new_user_password_path, class: "text-sm text-blue-600 hover:underline"

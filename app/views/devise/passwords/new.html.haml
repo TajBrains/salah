@@ -1,0 +1,12 @@
+.flex.items-center.justify-center
+  .scaffold.w-max.text-left
+    %h3.text-2xl.font-bold.text-center Forgot your password?
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { "data-turbo": "false", method: :post, format: :html }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .mt-4
+        %div
+          = f.label :email, class: "block", for: "email"
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", id: "email", placeholder: "Email"
+
+        .flex.items-baseline.justify-between
+          = f.submit "Send me reset password instructions", class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900", id: "submit"

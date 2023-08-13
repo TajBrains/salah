@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title SalahApp
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body{class: "min-w-full min-h-screen md:overflow-hidden", data: { controller: "visibility watcher", watcher_callback_url_value: root_url, watcher_times_value: @pray_time_service.times }, style: bg_image}
+    .mx-auto.px-6
+      = yield
+      - if Setting.main[:show_footer]
+        %footer.w-full.p-4.flex.items-center.justify-between{class: "md:fixed bottom-0 left-0", data: {visibility_target: "footer"}}
+          #attributions
+            - if @bg_image.present? && !@bg_image.attribute_link.blank?
+              = link_to @bg_image.attribute_text, @bg_image.attribute_link, class: "text-amber-400", target: "_blank"
+          #links.flex.items-center.space-x-4
+            = link_to "Impressum", root_path, class: "text-amber-400"
+            = link_to "Datenschutz", root_path, class: "text-amber-400"

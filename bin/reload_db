@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Drop the database
+rails db:drop
+
+# Create a new database
+rails db:create
+
+# Run migrations
+rails db:migrate
+
+# Load seed data
+rails db:seed

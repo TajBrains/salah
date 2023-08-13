@@ -1,0 +1,6 @@
+- if resource.errors.any?
+  #error_explanation
+    %ul
+      - resource.errors.messages.each do |message|
+        - message.last.each do |m|
+          %li.mt-4.p-2.bg-gray-200.rounded-xl= m
