@@ -3,7 +3,7 @@
 module ApplicationHelper
   def bg_image
     gradient_opacity = @bg_image&.opacity || 0.8
-    image_url = @bg_image&.image&.url || image_path('bg-min.jpg')
+    image_url = url_for(@bg_image&.image) || image_path('bg-min.jpg')
 
     styles = <<~CSS
       background-image: linear-gradient(rgba(0, 0, 0, #{gradient_opacity}), rgba(0, 0, 0, #{gradient_opacity})), url(#{image_url});

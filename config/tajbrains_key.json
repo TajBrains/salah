@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tajbrains",
+  "private_key_id": "5e3dedc5aa4a070dabdda42552fbe9d1072d8dd7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDU57qz8R2zlATN\njsuGXMgHKlapi6h0tZf740TJk+rbqFOpgSCtgbWEoOoMpk+P+gV3GzmQjXpbKqxZ\nXJn1YGA6od9Jh7lcsgWKoV98y//ld/wHWJ4PJyO1BAfOBCc+jumCdesvGA/Bt61d\njHDlfB7QQI27p9qRZdY9hqoeScnyKx8NDvaWllDcAzDmvWs9GVBAoWMU7+bAplw4\nYmi3Hv64hD6Fb6v9EvJsdE2wyMGuVcr8m1Q2HjHb/FJPWMlxfZroVtzCkOCwD3B2\ny3SRVvsBX5f04HZlWvQkssQHJVa4mnMACwkwX1qESF6bhNYbuBb+ZspRD9T9WQWF\nW9EvsBarAgMBAAECggEADi754y72+ZWs1DzlFihsMv4BE/531H6ch21Wkc9G4CdQ\nm4Q8txJjE1jc/sa9mivf3VV0+kpSkmw/WxyuLQikoINUKsPd92zsrZWelOPKQnFB\n2wNuVDgZSt/f3TutmZ9Psx9D8bk6o38nD4phowgnzVvflVbTWshcA3FLOAVWbMmP\nb/xSUOLxvjHOkiqv4WFdBMXDIGVDWZSRU4d2jzo6m6kng0nCSrsq/9rEa3MGQGsm\ne47yHfm7X6BZ2AMAHHEX5mhmI05W+18Ke1Bxn8O25ekpOi+a2zvdsMFrJDDuHuG6\nt/kaMav4KjPhdIOQ760XrFQbECdMjec2LmFMNv1u8QKBgQD70mH6qLTZkaMS4pQh\nIojz9P1OPhK5wkDiqOEU7CArZKkQra7lzqj43pWW+tdTOQuPmhlaM8RWEqKDwHBL\nyJXNiYOLrHIpb002/GMO68CHDbMfiK1EfFycqgBodlziVDeOv8hK2/GHH48KIzq+\np8xlHvAhYnQ1nXWTfTl4YnHe9wKBgQDYcAwwgzVk7f5E841vZEDyCoKqWVzHvY0P\nEusZeCgdNsmFEMnyIPWosgC0tFV66+KDOslptpqDKw1+yyKmRJG0xeNZyBuIXKrl\nff0oTXCJMxz7kY9s2QCiBsTkcTu2bRKz1gZW+D7PZWzF2L4ai9eQBBCNtdP84qh0\nKqRdPbm07QKBgFD7s2682owtfdgQ7bpKNOjfnKaQ58y9X8iErv3fgejykjw+3sQg\n1c5TJqBLQvwMmF8yG30asMVNcN4WAQceFq7mzlsYtg4FMTvBpsmhn2TPTw+REMe5\nhr8LHN57UhunIcbSfkM0wFPIHmQQOFAf/md2r5rM4rprTOiFmPnSDvS5AoGAKetB\noR+4dqzVg1s8eGeNYJOCjSWzn4fpyxKZ8BvigQ38Z8ZBpqCVk6+uDVGkAKOxAkOf\ngNb6BA+RlI4ZTuSW59Ev4FKuanGwM7R8FJMzCY+ZvGuLwMQiqD7xYWFA9GsZpTT9\nk1iPKbH2KDd7Uj7laCIxZpDh1ue7QoyDuv9aeV0CgYEAoOF7PjIWBgVcsVs8+dQn\nfHZ2Ur1Gql4DaPyytcbWQvTKLuLuNTKbs41G8qb6WcwGIi5QeXCJ4bchWbmAlh0z\npvHFKYrcwS5Eq7Xgc8yLBkrb0isJPXJEDQ2Jd3sI/hBMfOlK82MEul1rqZkQhqKG\nzkjGGi7s7JdjLl6qYAg0x8Q=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tajbrains@tajbrains.iam.gserviceaccount.com",
+  "client_id": "101413254275977331944",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tajbrains%40tajbrains.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

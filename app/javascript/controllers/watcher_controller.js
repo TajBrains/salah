@@ -1,17 +1,16 @@
 import ApplicationController from 'controllers/application_controller';
 
 export default class extends ApplicationController {
-    static targets = ["time"];
+    static targets = ["timesWindow", "iqamahWindow"];
+
     static values = {
         times: { type: Array, default: [] },
         callbackUrl: String,
-        turboInactivityTimer: { type: Number, default: 30 * 60 * 1000 }
     };
 
     connect() {
         this.checkPrayerTimes();
         this.startInterval();
-        this.startTurboInactivityTimer()
     }
 
     disconnect() {
@@ -33,11 +32,19 @@ export default class extends ApplicationController {
             super.dispatchReload();
         }
 
-        const prayTimes = this.timesValue.map((prayTime) => new Date(prayTime)).filter((dateObject) => !isNaN(dateObject.getTime()));
+        const prayTimes = this.timesValue
+            .map((prayTime) => new Date(prayTime))
+            .filter((dateObject) => !isNaN(dateObject.getTime()));
+
+        const timeForIqamah = 60 * 1000; // 2 minutes in milliseconds
 
         prayTimes.forEach((prayTime) => {
-            if (this.isSameTime(currentTime, prayTime)) {
-                super.dispatchReload();
+            const timeDifference = currentTime -  prayTime;
+
+            if (timeDifference <= timeForIqamah && timeDifference > 0) {
+                this.showIqamahWindow();
+            } else {
+                this.showTimesWindow();
             }
         });
     }
@@ -46,17 +53,13 @@ export default class extends ApplicationController {
         return currentTime.getHours() === 0 && currentTime.getMinutes() === 0 && currentTime.getSeconds() === 0;
     }
 
-    isSameTime(time1, time2) {
-        return (
-            time1.getHours() === time2.getHours() &&
-            time1.getMinutes() === time2.getMinutes() &&
-            time1.getSeconds() === time2.getSeconds()
-        );
+    showIqamahWindow() {
+        $("#timesWindow").addClass("hidden");
+        $("#iqamahWindow").removeClass("hidden").hide().fadeIn(1000);
     }
 
-    startTurboInactivityTimer = () => {
-        this.inactivityTimer = setTimeout(() => {
-            super.dispatchReload()
-        }, this.turboInactivityTimerValue);
-    };
+    showTimesWindow() {
+        $("#timesWindow").removeClass("hidden");
+        $("#iqamahWindow").addClass("hidden");
+    }
 }

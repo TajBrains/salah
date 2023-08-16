@@ -123,6 +123,7 @@ gem 'interactor', '~> 3.1'
 gem 'rails_accordion'
 
 gem 'avo'
+gem 'google-cloud-storage'
 gem 'hijri'
 gem 'httparty'
 gem 'jsonb_accessor'
