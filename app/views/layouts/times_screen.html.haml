@@ -13,7 +13,7 @@
     .mx-auto.px-6
       = yield
       - if Setting.main[:show_footer]
-        %footer.w-full.p-4.flex.items-center.justify-between{class: "md:fixed bottom-0 left-0", data: {visibility_target: "footer"}}
+        %footer.w-full.px-4.py-0.flex.items-center.justify-between{class: "md:fixed bottom-0 left-0", data: {visibility_target: "footer"}}
           #attributions
             - if @bg_image.present? && !@bg_image.attribute_link.blank?
               = link_to @bg_image.attribute_text, @bg_image.attribute_link, class: "text-amber-400", target: "_blank"
