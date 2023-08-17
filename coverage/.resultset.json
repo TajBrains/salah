@@ -3,6 +3,8 @@
     "coverage": {
       "/Users/ahmadshoh/Projects/salah-app/app/services/pray_time_service.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -13,31 +15,37 @@
           null,
           null,
           1,
+          10,
+          null,
+          10,
+          null,
+          10,
+          null,
+          10,
+          10,
+          null,
+          10,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
           8,
-          null,
-          8,
-          null,
-          8,
-          null,
-          8,
-          8,
-          null,
-          8,
-          null,
-          null,
-          1,
-          2,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          2,
-          1,
-          1,
           null,
           null,
           1,
@@ -58,80 +66,48 @@
           1,
           null,
           1,
-          9,
-          9,
+          11,
+          11,
           null,
           null,
           1,
-          36,
-          36,
+          44,
+          44,
           null,
           null,
           1,
-          9,
+          11,
           null,
           null
         ],
         "branches": {
-          "[:unless, 0, 13, 4, 13, 29]": {
-            "[:else, 1, 13, 4, 13, 29]": 8,
-            "[:then, 2, 13, 4, 13, 16]": 0
+          "[:unless, 0, 15, 4, 15, 29]": {
+            "[:else, 1, 15, 4, 15, 29]": 10,
+            "[:then, 2, 15, 4, 15, 16]": 0
           },
-          "[:if, 3, 15, 4, 15, 72]": {
-            "[:then, 4, 15, 4, 15, 35]": 2,
-            "[:else, 5, 15, 4, 15, 72]": 6
+          "[:if, 3, 17, 4, 17, 72]": {
+            "[:then, 4, 17, 4, 17, 35]": 2,
+            "[:else, 5, 17, 4, 17, 72]": 8
           },
-          "[:if, 6, 18, 21, 18, 106]": {
-            "[:then, 7, 18, 37, 18, 60]": 2,
-            "[:else, 8, 18, 63, 18, 106]": 6
+          "[:if, 6, 20, 21, 20, 106]": {
+            "[:then, 7, 20, 37, 20, 60]": 2,
+            "[:else, 8, 20, 63, 20, 106]": 8
           },
-          "[:if, 9, 27, 4, 27, 72]": {
-            "[:then, 10, 27, 4, 27, 35]": 0,
-            "[:else, 11, 27, 4, 27, 72]": 1
+          "[:if, 9, 32, 4, 32, 72]": {
+            "[:then, 10, 32, 4, 32, 35]": 0,
+            "[:else, 11, 32, 4, 32, 72]": 1
           },
-          "[:if, 12, 29, 4, 29, 121]": {
-            "[:then, 13, 29, 32, 29, 70]": 0,
-            "[:else, 14, 29, 73, 29, 121]": 1
+          "[:if, 12, 34, 4, 34, 121]": {
+            "[:then, 13, 34, 32, 34, 70]": 0,
+            "[:else, 14, 34, 73, 34, 121]": 1
           },
-          "[:if, 15, 35, 4, 35, 72]": {
-            "[:then, 16, 35, 32, 35, 37]": 0,
-            "[:else, 17, 35, 40, 35, 72]": 1
+          "[:if, 15, 39, 4, 39, 72]": {
+            "[:then, 16, 39, 32, 39, 37]": 0,
+            "[:else, 17, 39, 40, 39, 72]": 1
           }
-        }
-      },
-      "/Users/ahmadshoh/Projects/salah-app/app/models/pray_time.rb": {
-        "lines": [
-          1,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ],
-        "branches": {
-        }
-      },
-      "/Users/ahmadshoh/Projects/salah-app/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ],
-        "branches": {
         }
       }
     },
-    "timestamp": 1691056800
+    "timestamp": 1692266400
   }
 }

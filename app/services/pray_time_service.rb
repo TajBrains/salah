@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class PrayTimeService
   attr_reader :pray_time
 
-  PRAY_TIMES_ORDER = [:fajr, :dhuhr, :asr, :maghrib, :isha].freeze
+  PRAY_TIMES_ORDER = %i[fajr dhuhr asr maghrib isha].freeze
 
   def initialize(pray_time)
     @pray_time = pray_time
   end
 
-  def is_active?(time)
+  def active?(time)
     index = PRAY_TIMES_ORDER.index(time)
 
     return false unless index
@@ -20,8 +22,11 @@ class PrayTimeService
     Time.current.between?(current_pray_time, next_pray_time)
   end
 
+  def active_time
+    @pray_time.send(active_time_name).strftime('%Y-%m-%d %H:%M')
+  end
+
   def next_time
-    active_time_name = PRAY_TIMES_ORDER.find { |time| is_active?(time) }
     index = PRAY_TIMES_ORDER.index(active_time_name)
 
     @pray_time = PrayTime.yesterday if now.between?(midnight, fajr_time)
@@ -30,23 +35,26 @@ class PrayTimeService
   end
 
   def next_time_name
-    active_time_name = PRAY_TIMES_ORDER.find { |time| is_active?(time) }
     index = PRAY_TIMES_ORDER.index(active_time_name)
     active_time_name == :isha ? :fajr : PRAY_TIMES_ORDER[index + 1].to_s
   end
 
+  def active_time_name
+    PRAY_TIMES_ORDER.find { |time| active?(time) }
+  end
+
   def times
-    PRAY_TIMES_ORDER.map { |time| pray_time.send(time).strftime("%Y-%m-%d %H:%M") }
+    PRAY_TIMES_ORDER.map { |time| pray_time.send(time).strftime('%Y-%m-%d %H:%M') }
   end
 
   def times_as_array
     [
-      { label: I18n.t("times.fajr"), times: [pray_time.fajr, pray_time.sunset - 30.minutes], is_active: is_active?(:fajr) },
-      { label: I18n.t("times.sunset"), times: pray_time.sunset, is_active: is_active?(:sunset) },
-      { label: I18n.t("times.dhuhr"), times: pray_time.dhuhr, is_active: is_active?(:dhuhr) },
-      { label: I18n.t("times.asr"), times: pray_time.asr, is_active: is_active?(:asr) },
-      { label: I18n.t("times.maghrib"), times: pray_time.maghrib, is_active: is_active?(:maghrib) },
-      { label: I18n.t("times.isha"), times: pray_time.isha, is_active: is_active?(:isha) }
+      { label: I18n.t('times.fajr'), times: [pray_time.fajr, pray_time.sunset - 30.minutes], active: active?(:fajr) },
+      { label: I18n.t('times.sunset'), times: pray_time.sunset, active: active?(:sunset) },
+      { label: I18n.t('times.dhuhr'), times: pray_time.dhuhr, active: active?(:dhuhr) },
+      { label: I18n.t('times.asr'), times: pray_time.asr, active: active?(:asr) },
+      { label: I18n.t('times.maghrib'), times: pray_time.maghrib, active: active?(:maghrib) },
+      { label: I18n.t('times.isha'), times: pray_time.isha, active: active?(:isha) }
     ]
   end
 

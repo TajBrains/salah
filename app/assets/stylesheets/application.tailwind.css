@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .text-10xl {
+        font-size: 10rem; /* 160px */
+        line-height: 1;
+    }
+}
+
 body {
     background-repeat: no-repeat;
     background-size: cover;

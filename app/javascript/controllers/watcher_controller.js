@@ -6,7 +6,12 @@ export default class extends ApplicationController {
     static values = {
         times: { type: Array, default: [] },
         callbackUrl: String,
+        activeTime: String
     };
+
+    get activeTime() {
+        return new Date(this.activeTimeValue);
+    }
 
     connect() {
         this.checkPrayerTimes();
@@ -36,15 +41,17 @@ export default class extends ApplicationController {
             .map((prayTime) => new Date(prayTime))
             .filter((dateObject) => !isNaN(dateObject.getTime()));
 
-        const timeForIqamah = 60 * 1000; // 2 minutes in milliseconds
+        const timeForIqamah = 60 * 1000; // 1 minutes in milliseconds
 
         prayTimes.forEach((prayTime) => {
-            const timeDifference = currentTime -  prayTime;
+            if (prayTime.getTime() === this.activeTime.getTime()) {
+                const timeDifference = currentTime - prayTime;
 
-            if (timeDifference <= timeForIqamah && timeDifference > 0) {
-                this.showIqamahWindow();
-            } else {
-                this.showTimesWindow();
+                if (timeDifference <= timeForIqamah && timeDifference > 0) {
+                    this.showIqamahWindow();
+                } else {
+                    this.showTimesWindow();
+                }
             }
         });
     }
@@ -55,7 +62,7 @@ export default class extends ApplicationController {
 
     showIqamahWindow() {
         $("#timesWindow").addClass("hidden");
-        $("#iqamahWindow").removeClass("hidden").hide().fadeIn(1000);
+        $("#iqamahWindow").removeClass("hidden");
     }
 
     showTimesWindow() {

@@ -8,6 +8,7 @@ tr:
     isha: "Yatsı"
 
   remained_label: "%{time} Ezanına Kalan Süre"
+  iqamah_label: "%{time} vakti"
 
   date:
     abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]

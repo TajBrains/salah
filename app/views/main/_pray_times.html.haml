@@ -4,4 +4,4 @@
   .text-4xl.font-medium.text-amber-400{ data: { remained_time_target: "time" } } 00:00:00
 
 - @pray_time_service.times_as_array.each do |pray_time|
-  = render PrayTimeComponent.new(label: pray_time[:label], times: pray_time[:times], is_active: pray_time[:is_active])
+  = render PrayTimeComponent.new(label: pray_time[:label], times: pray_time[:times], active: pray_time[:active])
