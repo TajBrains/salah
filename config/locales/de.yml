@@ -1,12 +1,13 @@
 de:
   times:
-    fajr: "Imsak/Fajr"
-    sunset: "Güneş/Shooroq"
-    dhuhr: "Öğle/Dhuhr"
-    asr: "İkindi/Asr"
-    maghrib: "Akşam/Maghrib"
-    isha: "Yatsı/Isha"
-  remained_label: "%{time} Ezanına Kalan Süre"
+    fajr: Fajr
+    sunset: Shooroq
+    dhuhr: Dhuhr
+    asr: Asr
+    maghrib: Maghrib
+    isha: Isha
+  remained_label: "Verbleibende Zeit bis %{time} Adhan"
+  iqamah_label: "%{time} salah"
 
   date:
     abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]

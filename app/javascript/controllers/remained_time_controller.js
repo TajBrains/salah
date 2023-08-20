@@ -9,13 +9,6 @@ export default class extends ApplicationController {
 
         // Set up a timer to call updateTime() every second (1000ms)
         this.remainedTimeTimer = setInterval(() => {
-            if (this.timeTarget.textContent === "00:00:00") {
-                super.dispatchReload();
-            }
-            if (this.timeTarget.textContent.includes('-')) {
-                super.dispatchReload()
-            }
-
             this.updateTime();
         }, 1000);
     }
@@ -36,6 +29,12 @@ export default class extends ApplicationController {
         const minutes = String(Math.floor((differenceInMs % 3600000) / 60000)).padStart(2, '0');
         const seconds = String(Math.floor((differenceInMs % 60000) / 1000)).padStart(2, '0');
 
-        this.timeTarget.textContent = `${hours}:${minutes}:${seconds}`;
+        const remainedTime = `${hours}:${minutes}:${seconds}`;
+
+        if (remainedTime === '00:00:00' || remainedTime.includes('-')) {
+            super.dispatchReload();
+        } else {
+            this.timeTarget.textContent = remainedTime;
+        }
     }
 }

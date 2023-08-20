@@ -49,12 +49,12 @@ class PrayTimeService
 
   def times_as_array
     [
-      { label: I18n.t('times.fajr'), times: [pray_time.fajr, pray_time.sunset - 30.minutes], active: active?(:fajr) },
-      { label: I18n.t('times.sunset'), times: pray_time.sunset, active: active?(:sunset) },
-      { label: I18n.t('times.dhuhr'), times: pray_time.dhuhr, active: active?(:dhuhr) },
-      { label: I18n.t('times.asr'), times: pray_time.asr, active: active?(:asr) },
-      { label: I18n.t('times.maghrib'), times: pray_time.maghrib, active: active?(:maghrib) },
-      { label: I18n.t('times.isha'), times: pray_time.isha, active: active?(:isha) }
+      { label: :fajr, times: [pray_time.fajr, pray_time.sunset - 30.minutes], active: active?(:fajr) },
+      { label: :sunset, times: pray_time.sunset, active: active?(:sunset) },
+      { label: :dhuhr, times: pray_time.dhuhr, active: active?(:dhuhr) },
+      { label: :asr, times: pray_time.asr, active: active?(:asr) },
+      { label: :maghrib, times: pray_time.maghrib, active: active?(:maghrib) },
+      { label: :isha, times: pray_time.isha, active: active?(:isha) }
     ]
   end
 

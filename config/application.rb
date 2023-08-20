@@ -16,15 +16,14 @@ module SalahApp
     config.time_zone = 'Berlin'
 
     initializer 'app_assets', after: 'importmap.assets' do
-      Rails.application.config.assets.paths << Rails.root.join('app') # for component sidecar js
+      Rails.application.config.assets.paths << Rails.root.join('app')
     end
 
     # I18n
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :tr
 
     config.importmap.cache_sweepers << Rails.root.join('app/components')
 
     config.active_storage.resolve_model_to_route = :rails_storage_proxy
-
   end
 end

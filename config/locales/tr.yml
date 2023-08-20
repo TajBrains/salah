@@ -1,11 +1,11 @@
 tr:
   times:
-    fajr: "Imsak"
-    sunset: "Güneş"
-    dhuhr: "Öğle"
-    asr: "İkindi"
-    maghrib: "Akşam"
-    isha: "Yatsı"
+    fajr: Imsak
+    sunset: Güneş
+    dhuhr: Öğle
+    asr: İkindi
+    maghrib: Akşam
+    isha: Yatsı
 
   remained_label: "%{time} Ezanına Kalan Süre"
   iqamah_label: "%{time} vakti"
