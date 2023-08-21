@@ -41,7 +41,7 @@ export default class extends ApplicationController {
             .map((prayTime) => new Date(prayTime))
             .filter((dateObject) => !isNaN(dateObject.getTime()));
 
-        const timeForIqamah = 60 * 1000; // 1 minutes in milliseconds
+        const timeForIqamah = 60 * 1000; // 1.5 minutes in milliseconds
 
         prayTimes.forEach((prayTime) => {
             if (prayTime.getTime() === this.activeTime.getTime()) {
