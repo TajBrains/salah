@@ -15,13 +15,29 @@ RSpec.describe PrayTimeService do
   end
 
   describe '.active?' do
-    context 'with current time after fajr' do
-      it 'returns true when the time is active' do
-        expect(subject.active?(:fajr)).to be true
+    context 'with current time after sunset' do
+      it 'returns true when given time is fajr_iqamah' do
+        expect(subject.active?(:fajr_iqamah)).to be true
       end
 
-      it 'returns false when the time is not active' do
+      it 'returns false when given time is fajr' do
+        expect(subject.active?(:fajr)).to be false
+      end
+
+      it 'returns false when given time is dhuhr' do
+        expect(subject.active?(:dhuhr)).to be false
+      end
+
+      it 'returns false when given time is asr' do
         expect(subject.active?(:asr)).to be false
+      end
+
+      it 'returns false when given time is maghrib' do
+        expect(subject.active?(:maghrib)).to be false
+      end
+
+      it 'returns false when given time is isha' do
+        expect(subject.active?(:isha)).to be false
       end
     end
 
@@ -35,7 +51,6 @@ RSpec.describe PrayTimeService do
       end
 
       it 'returns false when the time is not active' do
-        # Assuming asr time is not active right now
         expect(subject.active?(:fajr)).to be false
       end
     end
@@ -53,17 +68,51 @@ RSpec.describe PrayTimeService do
         expect(subject.active?(:fajr)).to be false
       end
     end
+
+    context 'with current time after fajr and before fajr iqamah' do
+      before do
+        Timecop.freeze(DateTime.new(now.year, now.month, now.day, 3, 26))
+      end
+
+      it 'returns false for fajr_iqamah' do
+        expect(subject.active?(:fajr_iqamah)).to be false
+      end
+
+      it 'returns true for fajr' do
+        expect(subject.active?(:fajr)).to be true
+      end
+    end
   end
 
   describe '.next_time' do
     it 'returns the next prayer time' do
       expect(subject.next_time).to eq pray_time.dhuhr
     end
+
+    context 'with current time after fajr and before fajr iqamah' do
+      before do
+        Timecop.freeze(DateTime.new(now.year, now.month, now.day, 4, 30))
+      end
+
+      it 'returns fajr_iqamah time' do
+        expect(subject.next_time).to eq pray_time.fajr_iqamah
+      end
+    end
   end
 
   describe '.next_time_name' do
     it 'returns the name of the next prayer time' do
       expect(subject.next_time_name.to_sym).to eq :dhuhr
+    end
+
+    context 'with current time after fajr and before fajr iqamah' do
+      before do
+        Timecop.freeze(DateTime.new(now.year, now.month, now.day, 4, 30))
+      end
+
+      it 'returns fajr_iqamah' do
+        expect(subject.next_time_name.to_sym).to eq :fajr_iqamah
+      end
     end
   end
 end

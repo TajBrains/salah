@@ -1,13 +1,16 @@
 tr:
   times:
     fajr: Imsak
+    fajr_iqamah: Imsak
     sunset: Güneş
     dhuhr: Öğle
     asr: İkindi
     maghrib: Akşam
     isha: Yatsı
 
-  remained_label: "%{time} Ezanına Kalan Süre"
+  remained_azan: "%{time} Ezanine  Kalan Süre"
+  remained_iqamah: "%{time} Kematine  Kalan Süre"
+
   iqamah_label: "%{time} vakti"
 
   date:

@@ -18,5 +18,5 @@ body {
 }
 
 .cursor-hidden {
-    cursor: none;
+    cursor: none !important;
 }
