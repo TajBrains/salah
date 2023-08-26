@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_163706) do
   create_table "announcements", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.integer "show_duration"
     t.boolean "active"
     t.jsonb "metadata", default: {}
     t.datetime "created_at", null: false

@@ -8,6 +8,7 @@ class MainController < ApplicationController
     @pray_time = PrayTime.today
     @pray_time_service = PrayTimeService.new(@pray_time)
     @bg_image = Background.find_by(key: Setting.main[:background])
+    @announcements = Announcement.active
   end
 
   private

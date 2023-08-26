@@ -9,7 +9,7 @@
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body{class: "min-w-full min-h-screen md:max-h-screen md:overflow-hidden", data: { controller: "visibility watcher", watcher_callback_url_value: root_url, watcher_times_value: @pray_time_service.times, watcher_active_time_value: @pray_time_service.active_time }, style: bg_image}
+  %body{class: "min-w-full min-h-screen md:max-h-screen md:overflow-hidden", data: { controller: "visibility watcher", watcher: { has_any_announcement_value: @announcements.size > 0, times_value: @pray_time_service.times, active_time_value: @pray_time_service.active_time }}, style: bg_image}
     .mx-auto.px-6
       = yield
       - if Setting.main[:show_footer]

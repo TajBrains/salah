@@ -5,8 +5,8 @@ export default class extends ApplicationController {
 
     static values = {
         times: { type: Array, default: [] },
-        callbackUrl: String,
-        activeTime: String
+        activeTime: String,
+        hasAnyAnnouncement: Boolean
     };
 
     get activeTime() {
@@ -16,18 +16,29 @@ export default class extends ApplicationController {
     connect() {
         this.checkPrayerTimes();
         this.startInterval();
+        this.startAnnouncementInterval();
     }
 
     disconnect() {
-        this.stopInterval();
+        clearInterval(this.interval);
+        clearInterval(this.announcementInterval);
     }
 
     startInterval() {
         this.interval = setInterval(this.checkPrayerTimes.bind(this), 1000);
     }
 
-    stopInterval() {
-        clearInterval(this.interval);
+    startAnnouncementInterval() {
+        if (this.hasAnyAnnouncementValue) {
+            this.announcementInterval = setInterval(this.showAnnouncements.bind(this), 3 * 1000)
+        }
+    }
+
+    showAnnouncements() {
+        if (!this.iqamahWindowActive) {
+            $("#timesWindow").addClass("hidden");
+            $("#announcementsWindow").removeClass("hidden");
+        }
     }
 
     checkPrayerTimes() {
@@ -61,11 +72,13 @@ export default class extends ApplicationController {
     }
 
     showIqamahWindow() {
+        this.iqamahWindowActive = true;
         $("#timesWindow").addClass("hidden");
         $("#iqamahWindow").removeClass("hidden");
     }
 
     showTimesWindow() {
+        this.iqamahWindowActive = false;
         $("#timesWindow").removeClass("hidden");
         $("#iqamahWindow").addClass("hidden");
     }

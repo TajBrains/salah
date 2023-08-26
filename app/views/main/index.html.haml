@@ -1,3 +1,10 @@
+#announcementsWindow.w-full.h-screen.px-12.hidden{data: { controller: "announcement" }}
+  - @announcements.each do |announcement|
+    .w-full.h-full.flex.flex-col.items-start.justify-center.hidden{data: { announcement_target: "announcement", duration: announcement.show_duration }}
+      %h2.text-white.text-7xl.mb-2
+        = announcement.title
+      %p.text-amber-400.text-2xl
+        = announcement.body
 #iqamahWindow.w-full.h-screen.flex.items-center.justify-center.hidden{data: { controller: "iqamah" }}
   .text-white.text-9xl.text-center{data: {iqamah_target: "text"}}
     = t(:iqamah_label, time: t("times.#{@pray_time_service.active_time_name}", locale: :tr), locale: :tr)
