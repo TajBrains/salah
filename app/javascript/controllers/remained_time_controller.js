@@ -31,10 +31,10 @@ export default class extends ApplicationController {
 
         const remainedTime = `${hours}:${minutes}:${seconds}`;
 
+        this.timeTarget.textContent = remainedTime;
+
         if (remainedTime === '00:00:00' || remainedTime.includes('-')) {
             super.dispatchReload();
-        } else {
-            this.timeTarget.textContent = remainedTime;
         }
     }
 }

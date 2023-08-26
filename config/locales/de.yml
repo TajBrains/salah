@@ -1,14 +1,16 @@
 de:
   times:
     fajr: Fajr
-    fajr_iqamah: Fajr Iqamah
+    fajr_iqamah: Fajr
     sunset: Shooroq
     dhuhr: Dhuhr
     asr: Asr
     maghrib: Maghrib
     isha: Isha
-  remained_label: "Verbleibende Zeit bis %{time} Adhan"
-  iqamah_label: "%{time} salah"
+
+  remained_azan: "Verbleibende Zeit bis %{time} Adhan"
+  remained_iqamah: "Verbleibende Zeit bis %{time} Iqamah"
+  iqamah_label: "Salatu Al%{time}"
 
   date:
     abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]

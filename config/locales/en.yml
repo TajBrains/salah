@@ -1,14 +1,15 @@
 en:
   times:
     fajr: Fajr
-    fajr_iqamah: Fajr Iqamah
+    fajr_iqamah: Fajr
     sunset: Shooroq
     dhuhr: Dhuhr
     asr: Asr
     maghrib: Maghrib
     isha: Isha
 
-  remained_label: "Remained time until %{time} Azan"
+  remained_azan: "Remained time until %{time} Azan"
+  remained_iqamah: "Remained time until %{time} Iqamah"
   iqamah_label: "%{time} vakti"
 
   date:

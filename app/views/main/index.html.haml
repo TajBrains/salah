@@ -2,7 +2,7 @@
   .text-white.text-9xl.text-center{data: {iqamah_target: "text"}}
     = t(:iqamah_label, time: t("times.#{@pray_time_service.active_time_name}", locale: :tr), locale: :tr)
     %br
-    = t(:iqamah_label, time: t("times.#{@pray_time_service.active_time_name}", locale: :de), locale: :de)
+    = t(:iqamah_label, time: t("times.#{@pray_time_service.active_time_name}", locale: :de).underscore, locale: :de)
 #timesWindow.grid.grid-cols-12.gap-2.w-full.h-screen
   .hidden.h-full.flex-col.items-center.justify-around.py-4.md:flex.md:col-span-7
     #current_time

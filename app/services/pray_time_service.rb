@@ -13,7 +13,7 @@ class PrayTimeService
     index = PRAY_TIMES_ORDER.index(time)
     return false unless index
 
-    current_pray_time, next_pray_time = calculate_pray_times(index)
+    current_pray_time, next_pray_time = calculate_pray_times(time, index)
 
     Time.current.between?(current_pray_time, next_pray_time)
   end
@@ -25,7 +25,7 @@ class PrayTimeService
   def next_time
     index = PRAY_TIMES_ORDER.index(active_time_name)
 
-    current_pray_time, next_pray_time = calculate_pray_times(index)
+    _, next_pray_time = calculate_pray_times(active_time_name, index)
 
     next_pray_time
   end
@@ -56,8 +56,8 @@ class PrayTimeService
 
   private
 
-  def calculate_pray_times(index)
-    pt = now.between?(midnight, fajr_time) ? PrayTime.yesterday : @praytime
+  def calculate_pray_times(time, index)
+    pt = now.between?(midnight, fajr_time) && time == :isha ? PrayTime.yesterday : @praytime
 
     current_pray_time = pt.send(PRAY_TIMES_ORDER[index])
     next_pray_time = time == :isha ? pt.tomorrow.fajr : pt.send(PRAY_TIMES_ORDER[index + 1])
