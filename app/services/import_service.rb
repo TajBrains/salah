@@ -9,12 +9,12 @@ class ImportService
 
     times.each do |time|
       pray_time = PrayTime.find_or_initialize_by(date: Date.strptime(time[0], '%d.%m.%Y'))
-      pray_time.fajr = DateTime.parse("#{time[0]} #{time[2]}") - 2.hours
-      pray_time.sunset = DateTime.parse("#{time[0]} #{time[3]}") - 2.hours
-      pray_time.dhuhr = DateTime.parse("#{time[0]} #{time[4]}") - 2.hours
-      pray_time.asr = DateTime.parse("#{time[0]} #{time[5]}") - 2.hours
-      pray_time.maghrib = DateTime.parse("#{time[0]} #{time[6]}") - 2.hours
-      pray_time.isha = DateTime.parse("#{time[0]} #{time[7]}") - 2.hours
+      pray_time.fajr = DateTime.parse("#{time[0]} #{time[2]}") - 1.hours
+      pray_time.sunset = DateTime.parse("#{time[0]} #{time[3]}") - 1.hours
+      pray_time.dhuhr = DateTime.parse("#{time[0]} #{time[4]}") - 1.hours
+      pray_time.asr = DateTime.parse("#{time[0]} #{time[5]}") - 1.hours
+      pray_time.maghrib = DateTime.parse("#{time[0]} #{time[6]}") - 1.hours
+      pray_time.isha = DateTime.parse("#{time[0]} #{time[7]}") - 1.hours
       pray_time.save
     end
   end

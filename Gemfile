@@ -123,8 +123,11 @@ gem 'interactor', '~> 3.1'
 gem 'rails_accordion'
 
 gem 'avo'
-gem 'google-cloud-storage'
 gem 'hijri'
 gem 'httparty'
 gem 'jsonb_accessor'
 gem 'pundit'
+
+gem "anyway_config", "~> 2.5"
+gem 'google-cloud-secret_manager'
+gem 'google-cloud-storage'

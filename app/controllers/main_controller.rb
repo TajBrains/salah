@@ -13,6 +13,6 @@ class MainController < ApplicationController
   private
 
   def import_times
-    ImportService.import if PrayTime.today.nil?
+    ImportService.import if PrayTime.today.nil? || PrayTime.tomorrow.nil?
   end
 end

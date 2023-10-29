@@ -40,4 +40,4 @@
 .idea
 .env
 
-/config/tajbrains_key.json
+/config/google_auth.json
