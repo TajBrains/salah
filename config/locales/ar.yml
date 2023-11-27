@@ -1,0 +1,36 @@
+ar:
+  times:
+    fajr: الفجر
+    fajr_iqamah: الفجر
+    sunset: الشروق
+    dhuhr: الظهر
+    asr: العصر
+    maghrib: المغرب
+    isha: العشاء
+
+  remained_azan: "الوقت المتبقي حتى أذان %{time}"
+  remained_iqamah: "الوقت المتبقي حتى إقامة الصلاة %{time}"
+  iqamah_label: "صلاة %{time}"
+
+  date:
+    abbr_day_names: [الأحد, الاثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    abbr_month_names: ['', يناير, فبراير, مارس, إبريل, مايو, يونيو, يوليو, أغسطس, سبتمبر, أكتوبر, نوفمبر, ديسمبر]
+    day_names: [الأحد, الاثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    month_names: ['', يناير, فبراير, مارس, إبريل, مايو, يونيو, يوليو, أغسطس, سبتمبر, أكتوبر, نوفمبر, ديسمبر]
+    formats:
+      default: "%d.%m.%Y، %H:%M مساءً"
+      long: "%e %B %Y"
+      short: "%e %b"
+      time_only: '%H:%M مساءً'
+      date_only: '%d.%m.%Y'
+      pray_time: '%H:%M'
+  time:
+    am: ص
+    pm: م
+    formats:
+      default: "%d.%m.%Y، %H:%M مساءً"
+      long: "%A، %e %B %Y، %H:%M مساءً"
+      short: "%e %b، %H:%M مساءً"
+      time_only: '%H:%M مساءً'
+      date_only: '%d.%m.%Y'
+      pray_time: '%H:%M'

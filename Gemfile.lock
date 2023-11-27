@@ -187,6 +187,7 @@ GEM
       googleapis-common-protos-types (>= 1.3.1, < 2.a)
       googleauth (~> 1.0)
       grpc (~> 1.36)
+    geocoder (1.8.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     gon (6.4.0)
@@ -234,6 +235,7 @@ GEM
       googleauth (>= 0.16.2, < 2.a)
       mini_mime (~> 1.0)
     google-protobuf (3.24.2-arm64-darwin)
+    google-protobuf (3.24.2-x86_64-darwin)
     googleapis-common-protos (1.4.0)
       google-protobuf (~> 3.14)
       googleapis-common-protos-types (~> 1.2)
@@ -250,6 +252,9 @@ GEM
     groupdate (6.2.1)
       activesupport (>= 5.2)
     grpc (1.57.0)
+      google-protobuf (~> 3.23)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.57.0-x86_64-darwin)
       google-protobuf (~> 3.23)
       googleapis-common-protos-types (~> 1.0)
     grpc-google-iam-v1 (1.3.0)
@@ -583,6 +588,7 @@ DEPENDENCIES
   draper (~> 4.0)
   factory_bot_rails
   faker
+  geocoder (~> 1.8)
   gon
   google-cloud-secret_manager
   google-cloud-storage

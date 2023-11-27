@@ -5,8 +5,9 @@ class PrayTimeService
 
   PRAY_TIMES_ORDER = %i[fajr fajr_iqamah dhuhr asr maghrib isha].freeze
 
-  def initialize(praytime)
+  def initialize(praytime, location)
     @praytime = praytime
+    @location = location
   end
 
   def active?(time)
@@ -57,7 +58,7 @@ class PrayTimeService
   private
 
   def calculate_pray_times(time, index)
-    pt = now.between?(midnight, fajr_time) && time == :isha ? PrayTime.yesterday : @praytime
+    pt = now.between?(midnight, fajr_time) && time == :isha ? PrayTime.for_location(@location).yesterday : @praytime
 
     current_pray_time = pt.send(PRAY_TIMES_ORDER[index])
     next_pray_time = time == :isha ? pt.tomorrow.fajr : pt.send(PRAY_TIMES_ORDER[index + 1])

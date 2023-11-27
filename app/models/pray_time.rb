@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class PrayTime < ApplicationRecord
+  validates :date, presence: true, uniqueness: { scope: :location }
+  validates :location, presence: true
+
+  def self.for_location(location)
+    where(location: location)
+  end
+
   def self.today
     find_by(date: Date.current)
   end
@@ -21,11 +28,7 @@ class PrayTime < ApplicationRecord
     sunset - 30.minutes
   end
 
-  def inspect
+  def to_s
     "<PrayTime id: #{id}, date: #{date}>"
-	end
-
-	def to_s
-		"<PrayTime id: #{id}, date: #{date}>"
-	end
+  end
 end
