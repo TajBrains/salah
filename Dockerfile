@@ -28,11 +28,10 @@ ENV RAILS_LOG_TO_STDOUT="1" \
 
 # Install application gems
 COPY Gemfile Gemfile.lock /app/
+RUN bundle install
 
 # Copy application code
 COPY . /app/
-
-RUN bundle install
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile --gemfile app/ lib/

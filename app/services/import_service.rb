@@ -24,7 +24,7 @@ class ImportService
   end
 
   def self.parse_site(location)
-    response = HTTParty.get(url_by_location[location], headers: user_agent_header)
+    response = HTTParty.get(url_by_location[location.to_sym], headers: user_agent_header)
 
     Nokogiri::HTML(response.body)
   end
