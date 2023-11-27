@@ -128,6 +128,6 @@ gem 'httparty'
 gem 'jsonb_accessor'
 gem 'pundit'
 
-gem "anyway_config", "~> 2.5"
+gem 'anyway_config', '~> 2.5'
 gem 'google-cloud-secret_manager'
 gem 'google-cloud-storage'

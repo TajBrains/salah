@@ -16,6 +16,7 @@ class MainController < ApplicationController
 
   def set_location
     @location = request.subdomain.nil? | request.subdomain.empty? ? :stuttgart : request.subdomain
+    @location = @location == "salah" ? "stuttgart" : @location
   end
 
   def import_times
